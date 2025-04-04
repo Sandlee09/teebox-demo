@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buenos Aires - Official City Website</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        justify-content: space-between;
+      }
+      header {
+        background-color: #2c5282;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        margin-bottom: -5px;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      .city-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      .main-content {
+        flex: 2;
+        min-width: 300px;
+      }
+      .sidebar {
+        flex: 1;
+        min-width: 300px;
+      }
+      footer {
+        background-color: #2c5282;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+        width: 100%;
+        display: fixed;
+        bottom: 0;
+      }
+    </style>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- External React and ReactDOM for the widget -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Weather Widget Script and Styles -->
+    <link rel="stylesheet" href="./dist/weather-widget.min.css" />
+    <script src="./dist/weather-widget.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Buenos Aires</h1>
+      <p>The Paris of South America</p>
+    </header>
+
+    <img
+      src="https://images.unsplash.com/photo-1612294037637-ec328d0e075e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80"
+      alt="Buenos Aires Cityscape"
+      class="hero-image"
+    />
+
+    <div class="container">
+      <div class="city-info">
+        <div class="main-content">
+          <div class="card">
+            <h2>About Buenos Aires</h2>
+            <p>
+              Buenos Aires is the capital and largest city of Argentina. The
+              city is located on the western shore of the estuary of the Río de
+              la Plata, on the southeastern coast of South America. Buenos Aires
+              is known for its European architecture, rich cultural life, and
+              vibrant nightlife.
+            </p>
+            <p>
+              The city is divided into 48 barrios (neighborhoods), each with its
+              unique character. From the historic streets of San Telmo to the
+              modern waterfront of Puerto Madero, Buenos Aires offers a diverse
+              urban landscape.
+            </p>
+          </div>
+
+          <div class="card">
+            <h2>Popular Attractions</h2>
+            <ul>
+              <li>
+                <strong>Casa Rosada</strong> - The iconic presidential palace
+              </li>
+              <li>
+                <strong>Teatro Colón</strong> - One of the world's best opera
+                houses
+              </li>
+              <li>
+                <strong>La Boca</strong> - Colorful neighborhood and home to the
+                Boca Juniors soccer team
+              </li>
+              <li>
+                <strong>Recoleta Cemetery</strong> - Historic cemetery with
+                elaborate mausoleums
+              </li>
+              <li>
+                <strong>Plaza de Mayo</strong> - The city's main square and
+                political center
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Upcoming Events</h3>
+            <ul>
+              <li>International Tango Festival - August 2025</li>
+              <li>Buenos Aires Book Fair - April 2025</li>
+              <li>BAFICI Film Festival - June 2025</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <div class="card">
+            <h2>Current Weather</h2>
+            <div id="widget-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Government of Buenos Aires. All rights reserved.</p>
+    </footer>
+
+    <script>
+      window.addEventListener("load", function () {
+        if (window.Widget) {
+          Widget.init({
+            city: "Buenos Aires",
+          });
+        } else {
+          console.error("Weather Widget not loaded");
+        }
+      });
+    </script>
+  </body>
+</html>
